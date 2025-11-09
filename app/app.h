@@ -12,8 +12,8 @@ namespace vsite::oop::v3 {
 
     class results {
     public:
-        results(size_t capacity);
-        ~results();
+		results(size_t capacity); //size_t -> unigned long long
+        ~results(); //destruktor
         void add(const student& s);
         unsigned int has_grade(int grade) const;
         unsigned int starts_with_letter(char letter) const;

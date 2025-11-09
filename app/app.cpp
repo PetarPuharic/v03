@@ -1,6 +1,5 @@
 #include "app.h"
 #include <algorithm>
-#include <cctype>
 
 namespace vsite::oop::v3 {
 
@@ -43,12 +42,12 @@ namespace vsite::oop::v3 {
     unsigned int results::starts_with_letter(char letter) const
     {
         unsigned int cnt = 0;
-        char lower_letter = std::tolower(static_cast<unsigned char>(letter));
+        char lower_letter = std::tolower(letter);
         for (int i = 0; i < count; ++i)
         {
             if (!students[i].name.empty())
             {
-                char first_char = std::tolower(static_cast<unsigned char>(students[i].name[0]));
+                char first_char = std::tolower(students[i].name[0]);
                 if (first_char == lower_letter)
                 {
                     ++cnt;
@@ -111,7 +110,7 @@ namespace vsite::oop::v3 {
 
     unsigned int array::size() const
     {
-        return static_cast<unsigned int>(length);
+        return length;
     }
 
     double array::at(int index) const

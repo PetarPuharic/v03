@@ -43,9 +43,4 @@ int main()
 	std::cin >> letter;
 
 	std::cout << std::format("Broj studenata koji pocinju slovom '{}': {}\n", letter, r.starts_with_letter(letter));
-
-
-
-	return 0;
-
 }

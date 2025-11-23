@@ -24,16 +24,14 @@ namespace vsite::oop::v3 {
         size_t count;
     };
 
+
     class array {
     public:
         array();
-        array(size_t size, double value);
+        array(unsigned int size, double value);
         array(const array& other);
         array(array&& other) noexcept;
         ~array();
-
-        array& operator=(const array& other);
-        array& operator=(array&& other) noexcept;
 
         unsigned int size() const;
         double at(int index) const;
@@ -41,7 +39,7 @@ namespace vsite::oop::v3 {
 
     private:
         double* data;
-        size_t length;
+        unsigned int length;
     };
 
 } // namespace vsite::oop::v3

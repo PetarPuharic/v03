@@ -42,25 +42,24 @@ namespace vsite::oop::v3 {
     unsigned int results::starts_with_letter(char letter) const
     {
         unsigned int cnt = 0;
-        char lower_letter = std::tolower(letter);
         for (int i = 0; i < count; ++i)
         {
             if (!students[i].name.empty())
             {
                 char first_char = std::tolower(students[i].name[0]);
-                if (first_char == lower_letter)
+                if (first_char == std::tolower(letter))
                 {
                     ++cnt;
                 }
             }
-        }
+        }   
         return cnt;
     }
 
     // array class implementation
     array::array() : data(nullptr), length(0) {}
 
-    array::array(size_t size, double value) : length(size)
+    array::array(unsigned int size, double value) : length(size)
     {
         data = new double[size];
         std::fill(data, data + size, value);
@@ -81,31 +80,6 @@ namespace vsite::oop::v3 {
     array::~array()
     {
         delete[] data;
-    }
-
-    array& array::operator=(const array& other)
-    {
-        if (this != &other)
-        {
-            delete[] data;
-            length = other.length;
-            data = new double[length];
-            std::copy(other.data, other.data + length, data);
-        }
-        return *this;
-    }
-
-    array& array::operator=(array&& other) noexcept
-    {
-        if (this != &other)
-        {
-            delete[] data;
-            data = other.data;
-            length = other.length;
-            other.data = nullptr;
-            other.length = 0;
-        }
-        return *this;
     }
 
     unsigned int array::size() const
